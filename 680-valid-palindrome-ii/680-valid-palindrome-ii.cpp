@@ -19,10 +19,7 @@ public:
         string str="";
         int start=0;
         int end=l-1;
-        int c=0;
         while(start < end){
-            // cout<<s[start];
-            // cout<<s[end]<<endl;
 
             if(s[start] == s[end])
             {
@@ -31,22 +28,20 @@ public:
             }
             else
             {
-                c++;
-                break;              
-     
+                break;
             }
 		
         }
-        // cout<<start<<endl;
-        // cout<<end<<endl;
+
+        
 
         str=s.substr(0,start)+s.substr(start+1);
-        // cout<<str+"check1"<<endl;
+        
         if (isPalin(str)) return true;
+        
         str=s.substr(0,end)+s.substr(end+1);
-        // cout<<str+"check"<<endl;
+        
         if (isPalin(str)) return true;
-        // cout<<str+"check3"<<endl;
 
         return false;
         
