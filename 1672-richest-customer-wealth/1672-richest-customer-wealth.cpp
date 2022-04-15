@@ -6,6 +6,6 @@ public:
             sum=accumulate(it.begin(),it.end(),0);
             if (sum>max) max=sum;
         }
-        return max ;
+        return max;
     }
 };
