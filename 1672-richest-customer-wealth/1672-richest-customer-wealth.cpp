@@ -1,13 +1,9 @@
 class Solution {
 public:
     int maximumWealth(vector<vector<int>>& accounts) {
-        int max=INT_MIN,sum;
-        for (auto it:accounts){
-            // cout<<sum<<endl;
-            sum=accumulate(it.begin(),it.end(),0);
-            if (sum>max) max=sum;
-        }
-        
+        int max=INT_MIN;
+        for (auto it:accounts)
+            if (accumulate(it.begin(),it.end(),0)>max) max=accumulate(it.begin(),it.end(),0);
         return max ;
     }
 };
