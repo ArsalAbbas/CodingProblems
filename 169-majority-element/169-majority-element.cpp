@@ -24,20 +24,32 @@ public:
         
         //Sol 3 - Moore's voting algorithm
         
-        int candidate=nums[0],freq=1;
-        for(int i=1;i<nums.size();i++){
-            if(freq==0)
-            {
-                candidate=nums[i];
-                freq=1;
-                continue;
-            }
-            if(nums[i]==candidate)
-                freq++;
-            else
-                freq--;
+//         int candidate=nums[0],freq=1;
+//         for(int i=1;i<nums.size();i++){
+//             if(freq==0)
+//             {
+//                 candidate=nums[i];
+//                 freq=1;
+//                 continue;
+//             }
+//             if(nums[i]==candidate)
+//                 freq++;
+//             else
+//                 freq--;
             
-        }
-        return candidate;  
-        }
+//         }
+//         return candidate;  
+        int cnt=0;
+int elem=0;
+int x=nums.size();
+for(int i=0;i<x;i++){
+// if majority elements cancels n/2 unmatched element
+// then new element will be inserted in elem variable
+if(cnt==0)elem=nums[i];
+if(nums[i]==elem)cnt++;
+else cnt--;
+}
+return elem;
+        
+    }
 };
