@@ -26,16 +26,18 @@ public:
         
         int candidate=nums[0],freq=1;
         for(int i=1;i<nums.size();i++){
-            if(nums[i]==candidate)
-                freq++;
-            if(nums[i]!= candidate)
-                freq--;
             if(freq==0)
             {
                 candidate=nums[i];
                 freq=1;
+                continue;
             }
+            if(nums[i]==candidate)
+                freq++;
+            else
+                freq--;
+            
         }
-        return candidate;
-    }
+        return candidate;  
+        }
 };
