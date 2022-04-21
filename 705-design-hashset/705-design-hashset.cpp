@@ -1,20 +1,20 @@
 class MyHashSet {
 public:
-    vector<int> hashSet;
+    vector<bool> hashSet;
     MyHashSet() {
-        hashSet.resize(1e6+1);
+        hashSet.resize(1e6+1,false);
     }
     
     void add(int key) {
-        hashSet[key]=1;
+        hashSet[key]=true;
     }
     
     void remove(int key) {
-        hashSet[key]=0;
+        hashSet[key]=false;
     }
     
     bool contains(int key) {
-        if (hashSet[key]==1)
+        if (hashSet[key]==true)
             return true;
         return false;
     }
