@@ -14,9 +14,7 @@ public:
     }
     
     bool contains(int key) {
-        if (hashSet[key]==true)
-            return true;
-        return false;
+        return hashSet[key];
     }
 };
 
