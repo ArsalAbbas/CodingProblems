@@ -1,32 +1,52 @@
 class Solution 
 {
     public:
-    void setZeroes(vector<vector<int>>& matrix) 
-{
-        vector<pair<int,int>> xy;
-        pair<int,int> p;
-        for(int i=0; i< matrix.size(); i++)
-{
+//     void setZeroes(vector<vector<int>>& matrix) 
+// {
+//         vector<pair<int,int>> xy;
+//         pair<int,int> p;
+//         for(int i=0; i< matrix.size(); i++)
+// {
             
-            for( int j=0; j< matrix[i].size() ; j++)
-{
+//             for( int j=0; j< matrix[i].size() ; j++)
+// {
                 
-                    // cout<<matrix[i][j]<<" ";
-                if(matrix[i][j]==0)
-{
-                    p.first=i;
-                    p.second=j;
-                    xy.push_back(p); 
-}       
-}
-}
-         for(int i=0; i< xy.size(); i++)
-{
+//                     // cout<<matrix[i][j]<<" ";
+//                 if(matrix[i][j]==0)
+// {
+//                     p.first=i;
+//                     p.second=j;
+//                     xy.push_back(p); 
+// }       
+// }
+// }
+//          for(int i=0; i< xy.size(); i++)
+// {
              
-             for(int j=0; j<matrix[0].size();j++)
-                 matrix[xy[i].first][j]=0;
-             for(int j=0; j<matrix.size();j++)
-                 matrix[j][xy[i].second]=0;
-}             
+//              for(int j=0; j<matrix[0].size();j++)
+//                  matrix[xy[i].first][j]=0;
+//              for(int j=0; j<matrix.size();j++)
+//                  matrix[j][xy[i].second]=0;
+// }             
+// }
+    void setZeroes(vector<vector<int>>& matrix) {
+    set<int> row;
+    set<int> col;
+	
+	//If element is zero, insert its position in row & col set
+    for(int i=0; i<matrix.size(); i++)
+        for(int j=0; j<matrix[0].size(); j++)
+            if(matrix[i][j]==0)
+                row.insert(i), col.insert(j);
+	
+	//Set row elements to zero if zero is present in row
+    for(auto itr=row.begin(); itr!=row.end(); itr++)
+        for(int j=0; j<matrix[0].size(); j++)
+            matrix[*itr][j] = 0;
+	
+	//Set column elements to zero if zero is present in column
+    for(auto itr=col.begin(); itr!=col.end(); itr++)
+        for(int j=0; j<matrix.size(); j++)
+            matrix[j][*itr] = 0;
 }
 };
