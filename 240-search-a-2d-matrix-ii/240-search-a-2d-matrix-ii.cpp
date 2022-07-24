@@ -6,7 +6,7 @@ public:
 		int i = 0;
 		int j = n - 1;
 
-		while(i >= 0 && i < m &&  j >= 0 &&  j < n){
+		while(i < m &&  j >= 0){
 
 			if(matrix[i][j] == target){
 				return true;
