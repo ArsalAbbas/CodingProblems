@@ -1,11 +1,8 @@
 class Solution {
 public:
 	bool searchMatrix(vector<vector<int>>& matrix, int target) {
-
 		int m = matrix.size();
 		int n = matrix[0].size();
-		
-		// Start from top right corner
 		int i = 0;
 		int j = n - 1;
 
@@ -14,7 +11,7 @@ public:
 			if(matrix[i][j] == target){
 				return true;
 			}
-			else if(matrix[i][j] > target){ // Go left
+			else if(matrix[i][j] > target){ 
 				j--;
 			}
 			else if(matrix[i][j] < target){ // Go down
