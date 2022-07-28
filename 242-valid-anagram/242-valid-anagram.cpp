@@ -18,4 +18,21 @@ public:
         }
         return t==""?true:false;
     }
+//         bool isAnagram(string s, string t) {
+//         if(s.length()!=t.length())
+//             return false;
+//         map<char,int> mp;
+//         for(int i=0;i<s.length(); i++){
+            
+//             if(!mp[s[i]]){
+//                 mp[s[i]]=0;
+//             }
+//             mp[s[i]]++;
+//             if(!mp[t[i]])
+//                 mp[t[i]]=0;
+//             mp[t[i]]--;
+            
+//         }
+            
+//     }
 };
