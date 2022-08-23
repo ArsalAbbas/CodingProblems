@@ -22,7 +22,20 @@ public:
             slow=slow->next;
         }
         return true;
+//         ListNode* fast=head;
+//         ListNode* slow=head;
+//         ListNode* dummy=new ListNode();
+//         dummy->next=head;
+//         while(fast->next!=NULL && fast->next->next!=NULL){
+//             slow=slow->next;
+//             fast=fast->next->next;
+//         } 
+//         cout<<slow->val;
+//         ListNode* midDummy=slow;
+//         while(dummy!=NULL){
             
+//         }
         
-    }
+//         return true;
+        }
 };
