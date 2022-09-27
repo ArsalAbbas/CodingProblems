@@ -1,24 +1,24 @@
 class Solution {
 public:
-
-int lengthOfLongestSubstring(string s) {
-    int ans=0;
-    int st=0,end=0;
-     int prev_occ[150]={0};//return prev_occ+1
-    while(st<s.size()&&end<s.size()){
-        while(end<s.size()&&prev_occ[s[end]]==0){
-            prev_occ[s[end]]=end+1;
-            end++;
-        }    
-        ans=max(ans,end-st);
-        while(st<prev_occ[s[end]]-1){
-            prev_occ[s[st]]=0;
-            st++;
+    int lengthOfLongestSubstring(string s) {
+        
+        vector<int> mpp(256,-1);
+        int left=0, right=0;
+        int n=s.size();
+        int len=0;
+        
+        while(right<n){
+            
+        if(mpp[s[right]]!=-1)
+            left=max(mpp[s[right]]+1,left);
+            mpp[s[right]]=right;
+            
+            len=max(len,right-left+1);
+            right++;
+            
+                        
         }
-        prev_occ[s[end]]=end+1;
-        st++;
-        end++;
+        
+        return len;
     }
-    return ans;
-}
 };
