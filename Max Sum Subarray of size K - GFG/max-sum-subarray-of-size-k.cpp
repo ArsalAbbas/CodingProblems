@@ -6,25 +6,24 @@ using namespace std;
 class Solution{   
 public:
     long maximumSumSubarray(int K, vector<int> &arr , int N){
+        // code here 
         
-        int left=0;
-        int right=left+K-1;//1
+        int i=0;
+        int j=0;
         
         long sum=0;
         long maxSum=INT_MIN;
-        
-        for(int i=left  ;  i<=right;  i++)
-            sum+=arr[i];
-
-             maxSum=max(maxSum, sum);
-
-        while(right< N-1){
-            sum=sum-arr[left++]+arr[++right];
-            maxSum=max(maxSum, sum);
+        while(j< N){
+            sum+=arr[j];
+            if(j-i+1<K) j++;
+            else if(j-i+1==K){
+                maxSum=max(maxSum,sum);
+                sum=sum-arr[i];
+                i++;
+                j++;
+            }
         }
-        // cout<<maxSum<<endl;
         return maxSum;
-        
     }
 };
 
