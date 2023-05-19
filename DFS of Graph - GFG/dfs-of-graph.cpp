@@ -18,8 +18,7 @@ class Solution {
         // Code here
         vector<int> res;
         vector<int> vis(V,0);
-        int curr=0;
-        dfs(adj, res, vis, curr);
+        dfs(adj, res, vis, 0);
         return res;
     }
 };
