@@ -4,39 +4,37 @@ using namespace std;
 
 // } Driver Code Ends
 class Solution {
-    private:
-        bool bfsComponent(vector<int> &vis, vector<int> adj[],int curr){
-        queue<pair<int,int>> q;
-        q.push({curr,-1});
-        vis[curr]=1;
-        
-        while(!q.empty()){
-            int cur=q.front().first;
-            int past=q.front().second;
-            q.pop();
-            for(auto it: adj[cur])
-                if(it!=past && !vis[it]){
-                    vis[it]=1;
-                    q.push({it,cur});
-                }
-                else if(it!=past && vis[it]) return true;
+ //Using DFS
+private:
+    bool dfsComponent(vector<int> &vis, vector<int> adj[], int cur, int prev) {
+        vis[cur] = 1;
+
+        for (auto it : adj[cur]) {
+            if (!vis[it]) {
+                if (dfsComponent(vis, adj, it, cur))
+                    return true;
+            } else if (it != prev) {
+                return true;
+            }
         }
+
         return false;
-        }
-  public:
+    }
+
+public:
     // Function to detect cycle in an undirected graph.
     bool isCycle(int V, vector<int> adj[]) {
-        // Code here
-        vector<int> vis(V,0);
-        
-        for(int i=0; i<V; i++){
-         if(!vis[i])
-            if(bfsComponent(vis,adj,i)) return true;
+        vector<int> vis(V, 0);
+        for (int i = 0; i < V; i++) {
+            if (!vis[i]) {
+                if (dfsComponent(vis, adj, i, -1))
+                    return true;
+            }
         }
         return false;
-        
     }
 };
+
 
 //{ Driver Code Starts.
 int main() {
